@@ -13,6 +13,7 @@ app.use(cors());
 
 
 const app = express()
+const PORT = process.env.PORT || 4001;
 
 mongoose.connect(process.env.MONGO_URI)
 .then(()=>console.log("MongoDB connected Successfully!"))
@@ -24,11 +25,11 @@ app.use('/firm',firmRoutes);
 app.use('/product',productRoutes);
 app.use('/uploads',express.static('uploads'));
 
-const PORT = 4001;
+//const PORT = 4001;
 
 app.listen (PORT,()=>{
             console.log(`server started and run in ${PORT}`)
 })
-app.use('/home',(req,res)=>{
+app.use('/',(req,res)=>{
     res.send("<h1>welcome to swiggy");
 })
