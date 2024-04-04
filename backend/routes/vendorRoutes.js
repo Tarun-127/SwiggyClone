@@ -1,10 +1,12 @@
-const vendorControllers = require('../controllers/vendorControllers');
+const vendorController = require('../controllers/vendorControllers');
 const express = require('express');
 
-const router  = express.Router();
-router.post('/register', vendorControllers.vendorRegister);
-router.post('/login',vendorControllers.vendorLogin);
-router.get('/all-vendors',vendorControllers.getAllVendors);
-router.get('/single-vendor/:id',vendorControllers.getVendorById);
+const router = express.Router();
+
+router.post('/register', vendorController.vendorRegister);
+router.post('/login', vendorController.vendorLogin);
+
+router.get('/all-vendors', vendorController.getAllVendors);
+router.get('/single-vendor/:apple', vendorController.getVendorById)
 
 module.exports = router;
